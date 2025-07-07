@@ -15,7 +15,7 @@ export const getStaticProps = (async () => {
   }
 }) satisfies GetStaticProps<{ recipes: (Recipe | null)[] }>
 
-export default function HotCoffeePage(
+export default function IcedCoffeePage(
   { recipes }: InferGetStaticPropsType<typeof getStaticProps>) {
 
 
