@@ -26,11 +26,9 @@ export default function HotCoffeePage(
     {recipes.length === 0 && <div>The data could not be loaded</div>}
     {recipes.map(recipe => {
       if (recipe !== null) {
-        return <Suspense
+        return <Coffee recipe={recipe}
           key={recipe.id}
-          fallback={<div>Loading...</div>}>
-          <Coffee recipe={recipe} />
-        </Suspense>
+        />
       }
     }
     )}
