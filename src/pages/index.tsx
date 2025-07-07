@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function Home() {
   return (
-    <div className="mt-20 w-full h-full flex justify-center items-center gap-2">
+    <main className="mt-20 w-full h-full flex justify-center items-center gap-2">
       <Link href="/hot">
         <Image
           width={640}
@@ -21,6 +21,6 @@ export default function Home() {
           alt="hot coffee"
         />
       </Link>
-    </div>
+    </main>
   );
 }

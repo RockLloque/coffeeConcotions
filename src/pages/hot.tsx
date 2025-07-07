@@ -4,14 +4,24 @@ import { HOT_COFFE_API, REVALIDATE } from "@/lib/constants";
 import { fallbackRecipieHot } from "@/lib/fallbackRecipies";
 import { Recipe } from "@/types";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { Suspense } from "react";
 
 export const getStaticProps = (async () => {
   try {
-    const res = await fetch(HOT_COFFE_API)
-    const recipes: (Recipe | null)[] = await res.json()
-    return { props: { recipes, hasLoaded: true } }
+    const res = await fetch(HOT_COFFE_API);
+    if (res.ok) {
 
+      const recipes: (Recipe | null)[] = await res.json();
+      // We assume that the server data is static. Therefor no revalidate is needed if successful
+      return { props: { recipes, hasLoaded: true } }
+    }
+    return {
+      props: {
+        recipes: [
+          fallbackRecipieHot
+        ],
+        hasLoaded: false
+      }, revalidate: REVALIDATE
+    }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
     console.error(e.message)

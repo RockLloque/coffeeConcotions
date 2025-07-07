@@ -9,8 +9,20 @@ import { Suspense } from "react";
 export const getStaticProps = (async () => {
   try {
     const res = await fetch(ICED_COFFE_API);
-    const recipes: (Recipe | null)[] = await res.json()
-    return { props: { recipes, hasLoaded: true }, }
+    if (res.ok) {
+
+      const recipes: (Recipe | null)[] = await res.json();
+      // We assume that the server data is static. Therefor no revalidate is needed if successful
+      return { props: { recipes, hasLoaded: true } }
+    }
+    return {
+      props: {
+        recipes: [
+          fallbackRecipieIced
+        ],
+        hasLoaded: false
+      }, revalidate: REVALIDATE
+    }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
     console.error(e.message)
