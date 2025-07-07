@@ -3,5 +3,5 @@
 
 export function NotLoading({ hasLoaded }: { hasLoaded: boolean }) {
   if (hasLoaded) { return null; }
-  return <p>Our coffee machine appears to be broken. Enjoy this recipe instead</p>
+  return <p className="mb-6 text-center">Our coffee machine appears to be broken. Enjoy this recipe instead</p>
 }

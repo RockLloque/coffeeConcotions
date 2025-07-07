@@ -41,7 +41,8 @@ export default function IcedCoffeePage(
 
 
   return <div>
-    <h1>Iced Coffees</h1>
+
+    <h1 className="text-center text-xl font-bold">Iced Coffee</h1>
     <NotLoading hasLoaded={hasLoaded} />
     {recipes.map(recipe => {
       if (recipe !== null) {

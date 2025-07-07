@@ -40,8 +40,8 @@ export default function HotCoffeePage(
   { recipes, hasLoaded }: InferGetStaticPropsType<typeof getStaticProps>) {
 
 
-  return <div>
-    <h1>Hot Coffee</h1>
+  return <div className="mt-20">
+    <h1 className="text-center text-xl font-bold">Hot Coffee</h1>
     <NotLoading hasLoaded={hasLoaded} />
     {recipes.map(recipe => {
       if (recipe !== null) {
