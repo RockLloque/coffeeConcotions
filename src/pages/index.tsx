@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="mt-20">
       <h1 className="font-extrabold text-center text-3xl ">Coffe Concotions</h1>
-      <div className="mt-20 w-full h-full flex justify-center items-center gap-2">
+      <div className="mt-20 w-full h-full flex sm:flex-col flex-row justify-center items-center gap-2">
         <Link href="/hot">
           <Image
             width={640}
