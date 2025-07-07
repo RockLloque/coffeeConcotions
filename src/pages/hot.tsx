@@ -8,6 +8,7 @@ export interface Recipe {
   image?: string;
   id: string;
 }
+
 export const getStaticProps = (async () => {
   try {
     const res = await fetch('http://localhost:3002/api/hot')
@@ -17,7 +18,7 @@ export const getStaticProps = (async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
     console.error(e.message)
-    throw new Error('Fehler bei laden der Daten')
+    return { props: { recipes: [] }, revalidate: 60 }
   }
 }) satisfies GetStaticProps<{ recipes: (Recipe | null)[] }>
 
@@ -27,6 +28,7 @@ export default function HotCoffeePage(
 
   return <div>
     <h1>Hot Coffee</h1>
+    {recipes.length === 0 && <div>The data could not be loaded</div>}
     {recipes.map(recipe => {
       if (recipe !== null) {
         return <Suspense
