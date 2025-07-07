@@ -2,5 +2,7 @@ export interface Recipe {
   title: string;
   description: string;
   image?: string;
-  id: string;
+  id: number;
+  ingridients: string[],
+  tags: string[],
 }
