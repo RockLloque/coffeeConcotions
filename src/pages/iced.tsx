@@ -1,11 +1,12 @@
 import { Coffee } from "@/components/Coffe";
+import { ICED_COFFE_API } from "@/lib/constants";
 import { Recipe } from "@/types";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { Suspense } from "react";
 
 export const getStaticProps = (async () => {
   try {
-    const res = await fetch('http://localhost:3002/api/iced')
+    const res = await fetch(ICED_COFFE_API);
     const recipes: (Recipe | null)[] = await res.json()
     return { props: { recipes } }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

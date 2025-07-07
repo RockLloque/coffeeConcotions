@@ -1,11 +1,12 @@
 import { Coffee } from "@/components/Coffe";
+import { HOT_COFFE_API } from "@/lib/constants";
 import { Recipe } from "@/types";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { Suspense } from "react";
 
 export const getStaticProps = (async () => {
   try {
-    const res = await fetch('http://localhost:3002/api/hot')
+    const res = await fetch(HOT_COFFE_API)
     const recipes: (Recipe | null)[] = await res.json()
     return { props: { recipes } }
 
