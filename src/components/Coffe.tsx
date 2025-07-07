@@ -13,7 +13,7 @@ export function Coffee({ recipe }: { recipe: Recipe }) {
         <p className="mb-6">{recipe.description}</p>
         {recipe.ingridients.length > 0 &&
           <>
-            <h3 className="font-bold text-l"> Ingridients</h3>
+            <h3 className="font-bold text-l"> Ingredients</h3>
             <ul>
               {recipe.ingridients.map(ingr => <li key={ingr}>{ingr}</li>)}
             </ul>
