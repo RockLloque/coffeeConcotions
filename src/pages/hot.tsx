@@ -1,13 +1,7 @@
 import { Coffee } from "@/components/Coffe";
+import { Recipe } from "@/types";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { Suspense } from "react";
-
-export interface Recipe {
-  title: string;
-  description: string;
-  image?: string;
-  id: string;
-}
 
 export const getStaticProps = (async () => {
   try {

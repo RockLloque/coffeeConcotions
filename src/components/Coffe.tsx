@@ -1,4 +1,4 @@
-import { Recipe } from "@/pages/hot";
+import { Recipe } from "@/types";
 import Image from "next/image";
 
 
